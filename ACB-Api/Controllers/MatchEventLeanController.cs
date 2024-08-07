@@ -1,5 +1,6 @@
 using ACB_Api.Models;
 using ACB_Api.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ACB_Api.Controllers {
@@ -17,6 +18,7 @@ namespace ACB_Api.Controllers {
 		/// </summary>
 		/// <param name="game_id"></param>
 		/// <returns></returns>
+		[Authorize]
 		[HttpGet("pbp-lean/{game_id}")]
 		
 		public async Task<IEnumerable<MatchEventLean>> GetPbpLean (long game_id) {
@@ -37,7 +39,7 @@ namespace ACB_Api.Controllers {
 		/// </summary>
 		/// <param name="game_id"></param>
 		/// <returns></returns>
-
+		[Authorize]
 		[HttpGet("game-leaders/{game_id}")]
 
 		public async Task<GameLeader> GetGameLeaders (long game_id) {
@@ -64,7 +66,7 @@ namespace ACB_Api.Controllers {
 		/// </summary>
 		/// <param name="game_id"></param>
 		/// <returns></returns>
-
+		[Authorize]
 		[HttpGet("game-biggest_lead/{game_id}")]
 
 		public async Task<GameScore> GetGameBiggestLead (long game_id) {
